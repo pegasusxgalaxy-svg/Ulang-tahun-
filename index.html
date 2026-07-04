@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#000);
+color:white;
+}
+
+#btn{
+padding:15px 40px;
+font-size:22px;
+border:none;
+border-radius:40px;
+background:#ff4d8d;
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px #ff4d8d;
+}
+
+#box{
+display:none;
+text-align:center;
+padding:20px;
+}
+
+h1{
+font-size:32px;
+color:gold;
+text-shadow:0 0 15px gold;
+margin-bottom:20px;
+animation:zoom 2s infinite alternate;
+}
+
+.cake{
+font-size:110px;
+margin-bottom:15px;
+}
+
+p{
+font-size:20px;
+line-height:1.5;
+}
+
+.balloon{
+position:absolute;
+bottom:-60px;
+font-size:35px;
+animation:fly 8s linear forwards;
+}
+
+.firework{
+position:absolute;
+font-size:30px;
+animation:boom 1s forwards;
+}
+
+@keyframes fly{
+to{
+transform:translateY(-120vh);
+}
+}
+
+@keyframes boom{
+0%{
+transform:scale(.3);
+opacity:1;
+}
+100%{
+transform:scale(2);
+opacity:0;
+}
+}
+
+@keyframes zoom{
+to{
+transform:scale(1.05);
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<button id="btn">🎉 Mulai</button>
+
+<div id="box">
+<h1>🎂 Selamat Ulang Tahun 🎂</h1>
+
+<div class="cake">🎂</div>
+
+<p>
+Semoga sehat selalu,<br>
+panjang umur,<br>
+bahagia selalu,<br>
+dan semua impianmu tercapai. ✨
+</p>
+
+</div>
+
+<script>
+
+btn.onclick=function(){
+
+btn.style.display="none";
+
+box.style.display="block";
+
+setInterval(balloon,500);
+
+setInterval(firework,350);
+
+}
+
+function balloon(){
+
+let b=document.createElement("div");
+
+b.className="balloon";
+
+b.innerHTML=["🎈","🎉","💖"][Math.floor(Math.random()*3)];
+
+b.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(b);
+
+setTimeout(()=>b.remove(),8000);
+
+}
+
+function firework(){
+
+let f=document.createElement("div");
+
+f.className="firework";
+
+f.innerHTML=["🎆","✨","🎇","💥"][Math.floor(Math.random()*4)];
+
+f.style.left=Math.random()*100+"vw";
+
+f.style.top=Math.random()*60+"vh";
+
+document.body.appendChild(f);
+
+setTimeout(()=>f.remove(),1000);
+
+}
+
+</script>
+
+</body>
+</html>
